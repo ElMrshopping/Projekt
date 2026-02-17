@@ -9,8 +9,8 @@ public class Balance {
         String id_card=null;
         Path depositPath = Paths.get("Fichier/deposit.csv");
         Path withdrawalPath = Paths.get("Fichier/withdrawal.csv");
-        String line = "";
-        String line2= "";
+        String line = null;
+        String line2= null;
         BufferedReader bfr = null;
         BufferedReader bfr1 = null;
         BufferedReader bfr2 = null;
