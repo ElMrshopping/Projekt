@@ -82,6 +82,7 @@ public class Balance {
         {
             String dep = depIterator.next();
             sumDep += Double.parseDouble(dep.trim());
+            System.out.println("sumDep: " + sumDep);
         }
         while(withIterator.hasNext())
         {
