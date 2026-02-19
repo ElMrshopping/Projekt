@@ -18,13 +18,36 @@ public class Balance {
         ArrayList<String> withList = new ArrayList<>();
         int coloneIndex = 1;
         String separator = "\\|";
+        int counter = 2;
         try {
             bfr = new BufferedReader(new InputStreamReader(System.in));
             id_card = bfr.readLine();
-            if(id_card == null || id_card.trim().isEmpty()) {
-                System.out.println("Invalid ID card");
-                return;
+            while(id_card == null || id_card.trim().isEmpty()) {
+                System.out.println("ID card cannot be empty!");
+                System.out.println("Insert the ID card :");
+                id_card = bfr.readLine();
             }
+            while(counter > 0)
+            {
+            if(id_card.contains("|") || id_card.contains(" ")) {
+                System.out.println("ID card cannot contain '|' or spaces!");
+                System.out.println("Insert the ID card :");
+                id_card = bfr.readLine();
+                counter++;
+            }
+            else{ 
+                if(id_card.length() < 9 || id_card.length() > 9 || !id_card.startsWith("DE") ) {
+                System.out.println("ID card must be at least 9 characters long and start with 'DE'!");
+                System.out.println("Insert the ID card :");
+                id_card = bfr.readLine();
+                counter++;
+            }
+            else{
+                System.out.println("ID card is valid!");
+                counter = 0;
+            }
+        }
+        }
             bfr1 = Files.newBufferedReader(depositPath);
             bfr2 = Files.newBufferedReader(withdrawalPath);
             while((line = bfr1.readLine()) != null){
